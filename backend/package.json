@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node lib/index",
+    "dev": "nodemon --exec node lib/index.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.1.18",
+    "pg-promise": "^10.9.5"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.23.1",
+    "nodemon": "^1.9.2"
+  }
+}
