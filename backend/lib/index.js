@@ -1,11 +1,13 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const {nodeEnv} = require('./util');
+console.log(`Running in ${nodeEnv} mode...`);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// Query argument
+const queryArg = process.argv[2];
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+const ncSchema = require('../schema');
+const {graphql} = require('graphql');
+
+// Execute the query with our Schema
+graphql(ncSchema, queryArg).then((result) => {
+  console.log(JSON.parse(JSON.stringify(result)));
 });
