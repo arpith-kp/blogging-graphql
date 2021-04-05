@@ -6,7 +6,7 @@ DROP TABLE if exists users;
 
 CREATE TABLE users (
   id serial primary key,
-  first_name VARCHAR(50) NULL DEFAULT NULL,  
+  first_name VARCHAR(50) NULL DEFAULT NULL,
   last_name VARCHAR(50) NULL DEFAULT NULL,
   email VARCHAR(50) NULL,
   created_at timestamp not null default current_timestamp,
@@ -18,7 +18,7 @@ CREATE TABLE post (
   author_id BIGINT REFERENCES users NOT NULL,
   title VARCHAR(75) NOT NULL,
   created_at timestamp not null default current_timestamp,
-  updated_at timestamp not null default current_timestamp,  
+  updated_at timestamp not null default current_timestamp,
   content TEXT NULL DEFAULT NULL
   );
 
