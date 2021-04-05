@@ -41,4 +41,5 @@ yarn-error.log
 .eslintcache
 
 # macOS
-.DS_Storepackage-lock.json
+.DS_Store
+package-lock.json
