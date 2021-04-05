@@ -1,13 +1,15 @@
-const {nodeEnv} = require('./util');
-console.log(`Running in ${nodeEnv} mode...`);
-
-// Query argument
-const queryArg = process.argv[2];
+const app = require('express')();
 
 const ncSchema = require('../schema');
-const {graphql} = require('graphql');
+const graphqlHTTP = require('express-graphql');
 
-// Execute the query with our Schema
-graphql(ncSchema, queryArg).then((result) => {
-  console.log(JSON.parse(JSON.stringify(result)));
+// Execute the query
+app.use('/graphql', graphqlHTTP({
+  schema: ncSchema,
+  graphiql: true,
+}));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 });
