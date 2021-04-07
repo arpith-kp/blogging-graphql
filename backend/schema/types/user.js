@@ -10,6 +10,7 @@ module.exports = new GraphQLObjectType({
 
   fields: {
     id: {type: GraphQLID},
+    firstName: {type: GraphQLString},
     email: {type: new GraphQLNonNull(GraphQLString)},
   },
 });

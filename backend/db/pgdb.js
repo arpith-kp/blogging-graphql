@@ -1,3 +1,4 @@
+const humps = require('humps');
 module.exports = (pgPool) => {
   return {
     getUser(tokenId) {
@@ -5,7 +6,8 @@ module.exports = (pgPool) => {
           select * from users
           where token_id = $1
         `, [tokenId]).then((res) => {
-        return res['0'];
+        console.log(res);
+        return humps.camelizeKeys(res['0']);
       });
     },
   };
